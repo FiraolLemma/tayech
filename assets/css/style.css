@@ -225,7 +225,7 @@ body::after {
 ============================================================ */
 .hero-section {
   text-align: center;
-  padding: 5rem 1rem 2rem;
+  padding: 3rem 1rem 1rem;
   position: relative;
   overflow: hidden;
   background: linear-gradient(rgba(180, 38, 38, 0.226), rgba(27, 197, 174, 0.233)),
@@ -345,18 +345,20 @@ body::after {
 
 .fancy-btn {
   position: relative;
-  padding: 12px 24px;
   border: none;
   border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
   color: white;
   overflow: hidden;
   transition: all var(--spell-duration);
   z-index: 1;
   min-width: 150px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  background-color: var(--poppo-purple);
+  display: inline-block;
+  text-align: center; 
+  padding: 12px 24px; 
+  background: linear-gradient(to right, #f72585, #7209b7);  
+  font-weight: bold; 
+  text-decoration: none;
 }
 
 .fancy-btn.color1 { background-color: var(--poppo-purple); }
@@ -1142,7 +1144,7 @@ details p {
   .offer-steps-grid { grid-template-columns: 1fr !important; }
   .main-content { padding: 1rem; }
   .hero-section { padding: 0; }
-  .section { margin: 2rem 0; }
+  .section { margin: 1rem 0; }
   .fancy-buttons { flex-direction: column; }
   .fancy-btn { width: fit-content; padding: 0; margin: 0; }
   .contact-header { flex-direction: column; text-align: center; }
@@ -1359,19 +1361,152 @@ details p {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.62);
   border: 1px solid #0c2b53;
   border-radius: 5px;
-  padding: 10px 15px;
+  padding: 7px 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000000;
   color:rgba(247, 37, 133, 0.6)
 }
 .floating-id .id-number {
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 .floating-id .id-label {
   font-size: 0.9em;
   color: #666;
+}
+
+/* for social icons */
+/* Social Icons Container */
+.social-icons {
+    display: flex;
+    gap: 1.2rem;
+    margin: 1.5rem 0;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Individual Social Icon Links */
+.social-icons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(247, 37, 133, 0.1) 0%, rgba(114, 9, 183, 0.1) 100%);
+    backdrop-filter: blur(5px);
+    border: 1.5px solid rgba(3, 247, 194, 0.979);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effects */
+.social-icons a:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, rgba(247, 37, 133, 0.2) 0%, rgba(114, 9, 183, 0.2) 100%);
+}
+
+/* Glow Effect on Hover */
+.social-icons a:hover::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--spell-purple), var(--fairy-pink), var(--wizard-blue));
+    background-size: 200% 200%;
+    z-index: -1;
+    filter: blur(8px);
+    opacity: 0.7;
+    animation: gradient-shift 3s infinite alternate;
+    border-radius: 50%;
+}
+
+/* Social Icon Images */
+.social-icons a img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    filter: brightness(0.9);
+}
+
+.social-icons a:hover img {
+    transform: scale(1.15);
+    filter: brightness(1.2);
+}
+
+/* Specific Platform Colors on Hover */
+.social-icons a[href*="facebook"]:hover {
+    background: linear-gradient(135deg, rgba(59, 89, 152, 0.2) 0%, rgba(59, 89, 152, 0.3) 100%);
+}
+
+.social-icons a[href*="youtube"]:hover {
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.2) 0%, rgba(255, 0, 0, 0.3) 100%);
+}
+
+.social-icons a[href*="tiktok"]:hover {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+/* Animation for Continuous Subtle Movement */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.social-icons a {
+    animation: float 4s ease-in-out infinite;
+}
+
+.social-icons a:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.social-icons a:nth-child(3) {
+    animation-delay: 1s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .social-icons {
+        gap: 1rem;
+    }
+    
+    .social-icons a {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .social-icons a img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media (max-width: 576px) {
+    .social-icons {
+        gap: 0.8rem;
+    }
+    
+    .social-icons a {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .social-icons a img {
+        width: 22px;
+        height: 22px;
+    }
 }

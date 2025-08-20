@@ -71,3 +71,14 @@ Mystical backgrounds (starry night sky, twinkling effects)
 Animated spell effects (fireball trail, water ripple)
 Floating magical elements (scrolls, runes, ancient text effects)
 Please write all CSS in one stylesheet. Keep it clean and organized with comments.
+
+
+
+
+
+
+
+
+
+
+I'll create a modern, visually appealing CSS style for your social icons that matches the magical theme of your website
