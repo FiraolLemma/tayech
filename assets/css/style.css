@@ -197,7 +197,7 @@ body::after {
 .language-switcher {
   position: fixed;
   top: 5rem;
-  right: 1rem;
+  right: 5.5rem;
   display: flex;
   gap: 0.3rem;
   align-items: center;
@@ -262,10 +262,9 @@ body::after {
 ============================================================ */
 .main-content {
   margin-top: 80px;
-  padding: 2rem;
+  padding: 0;
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0 auto;
 }
 
 .section {
@@ -1364,7 +1363,7 @@ details p {
 .floating-id {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  right: 5.5rem;
   background: rgba(255, 255, 255, 0.62);
   border: 1px solid #0c2b53;
   border-radius: 5px;
