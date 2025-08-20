@@ -1545,7 +1545,7 @@ details p {
 /* Image Slideshow Styles - Enhanced for responsiveness */
 .image-slideshow {
     position: relative;
-    width: 100%;
+    width: 50%;
     height: 400px; /* Default height for larger screens */
     overflow: hidden;
     border-radius: 10px;
@@ -1566,20 +1566,21 @@ details p {
     opacity: 1;
 }
 
-/* Responsive adjustments for slideshow */
 @media (max-width: 992px) {
     .image-slideshow {
         height: 350px;
+    }
+    .image-slideshow {
+    width: 100%;
     }
 }
 
 @media (max-width: 768px) {
     .image-slideshow {
         height: 300px;
-        margin-bottom: 1.5rem; /* Add spacing on mobile */
+        margin-bottom: 1.5rem;
     }
     
-    /* Ensure the slideshow container takes full width on mobile */
     .section.reverse .content {
         flex-direction: column;
     }
