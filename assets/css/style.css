@@ -195,9 +195,13 @@ body::after {
 
 /* Language Switcher */
 .language-switcher {
+  position: fixed;
+  top: 5rem;
+  right: 1rem;
   display: flex;
   gap: 0.3rem;
   align-items: center;
+  z-index: 10000;
 }
 
 .language-switcher button {
@@ -214,8 +218,8 @@ body::after {
 }
 
 .language-switcher img {
-  width: 25px;
-  height: 16px;
+  width: 55px;
+  height: 46px;
   border-radius: 2px;
   object-fit: cover;
 }
@@ -1156,7 +1160,7 @@ details p {
   .nav-links a { color: white; font-size: 1.1rem; padding: 0.5rem 0; }
   .nav-links.active { left: 0; margin-top: 0; padding-top: 0; }
   .language-switcher { gap: 0.2rem; }
-  .language-switcher img { width: 20px; height: 14px; }
+  .language-switcher img { width: 35px; height: 25px; opacity: 0.8; }
 }
 
 @media (max-width: 576px) {
