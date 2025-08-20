@@ -2,6 +2,63 @@
 // Magical UI Effects Script
 // ===============================
 
+// --- Image Slideshow Functionality ---
+function initImageSlideshow() {
+    const slideshow = document.querySelector('.image-slideshow');
+    if (!slideshow) return;
+
+    const slides = slideshow.querySelectorAll('.slide');
+    if (slides.length === 0) return;
+
+    let currentSlide = 0;
+    const slideInterval = 3000;
+
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        
+        slides[index].classList.add('active');
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    showSlide(currentSlide);
+    const slideshowInterval = setInterval(nextSlide, slideInterval);
+
+    slideshow.addEventListener('mouseenter', () => {
+        clearInterval(slideshowInterval);
+    });
+
+    slideshow.addEventListener('mouseleave', () => {
+        clearInterval(slideshowInterval);
+        slideshowInterval = setInterval(nextSlide, slideInterval);
+    });
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    slideshow.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    slideshow.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        if (touchEndX < touchStartX - 50) {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        } else if (touchEndX > touchStartX + 50) {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+    }
+}
+
 // --- 1. Particle Animations: Sparkles & Orbs ---
 
 /**
@@ -455,6 +512,8 @@ function initMagicalEffects() {
   setupSmoothScrolling();
   setupPageSections();
   applyColorAnimations();
+  initImageSlideshow(); // Add the image slideshow initialization
+  
   // Initialize AOS if available
   if (typeof AOS !== 'undefined') {
     AOS.init({ duration: 800, once: true, easing: 'ease-in-out' });
@@ -470,5 +529,3 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   window.showHome?.();
 });
-
-
